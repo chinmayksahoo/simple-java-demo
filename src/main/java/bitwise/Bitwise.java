@@ -29,4 +29,16 @@ public class Bitwise {
     public static int unsignedRightShift(int a) {
         return a >>> 1;
     }
+
+    public static short countBitsSetToOne(int a) {
+        short count = 0;
+
+        while (a != 0) {
+            count += (a & 1);
+
+            a >>>= 1;
+        }
+
+        return count;
+    }
 }

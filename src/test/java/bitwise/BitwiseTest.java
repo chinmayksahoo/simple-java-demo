@@ -14,13 +14,14 @@ public class BitwiseTest {
     @Test
     public void testBitwise() {
         assertEquals(Bitwise.bitwiseOr(2,2), 2);
-        assertEquals(Bitwise.bitwiseAnd(2,2), 2);
+        assertEquals(Bitwise.bitwiseAnd(2,1), 0);
         assertEquals(Bitwise.bitwiseXOR(2,2), 0);
         assertEquals(Bitwise.bitwiseComplement(2), -3);
         assertEquals(Bitwise.leftShit(2), 4);
         assertEquals(Bitwise.rightShift(2), 1);
         assertEquals(Bitwise.rightShift(-2), -1);
         assertEquals(Bitwise.unsignedRightShift(2), 1);
+        assertEquals(Bitwise.countBitsSetToOne(12), 2);
     }
 
 }
