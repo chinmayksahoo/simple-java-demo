@@ -17,6 +17,7 @@ public class BitwiseTest {
         assertEquals(Bitwise.bitwiseOr(2,2), 2);
         assertEquals(Bitwise.bitwiseAnd(2,1), 0);
         assertEquals(Bitwise.bitwiseXOR(2,2), 0);
+        assertEquals(Bitwise.bitwiseComplement(1), -2);
         assertEquals(Bitwise.bitwiseComplement(2), -3);
         assertEquals(Bitwise.leftShit(2), 4);
         assertEquals(Bitwise.rightShift(2), 1);
@@ -27,6 +28,8 @@ public class BitwiseTest {
         assertEquals(Bitwise.returnParity(1), 1);
         assertEquals(Bitwise.returnParity(2), 1);
         assertEquals(Bitwise.returnParity(3), 0);
+
+        assertEquals(Bitwise.bitSwap(2, 1, 2), 4);
     }
 
 }
