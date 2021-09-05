@@ -41,4 +41,18 @@ public class Bitwise {
 
         return count;
     }
+
+    public static int returnParity(int a) {
+        short count = 0;
+
+        while (a != 0) {
+            count += (a & 1);
+            a >>>= 1;
+        }
+
+        if (count % 2 == 0)
+            return 0;
+        else
+            return 1;
+    }
 }

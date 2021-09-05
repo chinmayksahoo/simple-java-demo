@@ -9,6 +9,7 @@ public class BitwiseTest {
 
     @Before
     public void init() {
+        System.out.println("ashish".substring(0,3));
     }
 
     @Test
@@ -22,6 +23,10 @@ public class BitwiseTest {
         assertEquals(Bitwise.rightShift(-2), -1);
         assertEquals(Bitwise.unsignedRightShift(2), 1);
         assertEquals(Bitwise.countBitsSetToOne(12), 2);
+
+        assertEquals(Bitwise.returnParity(1), 1);
+        assertEquals(Bitwise.returnParity(2), 1);
+        assertEquals(Bitwise.returnParity(3), 0);
     }
 
 }
