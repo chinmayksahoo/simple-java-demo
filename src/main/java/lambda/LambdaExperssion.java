@@ -52,9 +52,21 @@ public class LambdaExperssion {
 
         System.out.println("Method Reference :");
         productList.forEach(LambdaExperssion::iPrint);
+
+        System.out.println("Steam :");
+        productList.stream().map(Product::getName).forEach(System.out::println);
+
+        System.out.println("Product Factory :");
+        ProductFactory productFactory = Product::new;
+
+        System.out.println(productFactory.create(Category.TV, "S A M S U N G", 15.03));
     }
 
     private static void iPrint(Object product) {
         System.out.println(product);
+    }
+
+    interface ProductFactory {
+        Product create(Category category, String name, Double price);
     }
 }
