@@ -2,6 +2,7 @@ package lambda;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class LambdaExperssion {
 
@@ -20,17 +21,40 @@ public class LambdaExperssion {
     public static void main(String[] args) {
         List<Product> productList = ProductList.getProductList();
 
+        System.out.println("Products :");
         System.out.println(productList);
 
         productList.sort(
                 (p1, p2) -> p1.getPrice().compareTo(p2.getPrice())
         );
 
+        System.out.println("Sorted products :");
         System.out.println(productList);
 
-        final Double MIN_LIMIT = 10.0;
+        final Double MIN_LIMIT = 5.0;
+        final Double MAX_LIMIT = 10.0;
 
+        System.out.println("Min Range :");
         listProduct(productList, product -> product.getPrice() > MIN_LIMIT);
 
+        System.out.println("Max Range :");
+        listProduct(productList, product -> product.getPrice() < MAX_LIMIT);
+
+        List<Product> affordableProducts = new ArrayList<>();
+
+        productList.forEach(product -> {
+            if (product.getPrice() < MAX_LIMIT)
+                affordableProducts.add(product);
+        });
+
+        System.out.println("Affordable products :");
+        affordableProducts.forEach(System.out::println);
+
+        System.out.println("Method Reference :");
+        productList.forEach(LambdaExperssion::iPrint);
+    }
+
+    private static void iPrint(Object product) {
+        System.out.println(product);
     }
 }
