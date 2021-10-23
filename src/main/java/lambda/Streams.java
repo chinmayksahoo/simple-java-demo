@@ -1,6 +1,7 @@
 package lambda;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Stream;
 
 public class Streams {
@@ -9,9 +10,7 @@ public class Streams {
         List<Product> productList = ProductList.getProductList();
 
         productList.forEach(
-                (Product product) -> {
-                    System.out.println(product);
-                }
+                System.out::println
         );
 
         System.out.println("Stream :");
@@ -44,5 +43,20 @@ public class Streams {
                 .filter(product -> product.getPrice() > 6)
                 .map(Product::getName)
                 .forEach(System.out::println);
+
+        System.out.println("Find First: ");
+        Optional<Product> optionalProduct = productList.stream()
+                .filter(product -> product.getPrice() > 6)
+                .findFirst();
+
+        optionalProduct.ifPresent(System.out::println);
+
+        System.out.println("Find Any: ");
+        Optional<Product> optionalProduct2 = productList.stream()
+                .filter(product -> product.getPrice() > 6)
+                .findAny();
+
+        optionalProduct2.ifPresent(System.out::println);
+
     }
 }
