@@ -2,6 +2,7 @@ package lambda;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class Streams {
@@ -57,6 +58,21 @@ public class Streams {
                 .findAny();
 
         optionalProduct2.ifPresent(System.out::println);
+
+
+        System.out.println("Reduce :");
+
+        List<String> productName = productList.stream()
+                .map(Product::getName)
+                .collect(Collectors.toList());
+
+        System.out.println(productName);
+
+        String names = productList.stream()
+                .map(Product::getName)
+                .collect(Collectors.joining(", "));
+
+        System.out.println(names);
 
     }
 }
