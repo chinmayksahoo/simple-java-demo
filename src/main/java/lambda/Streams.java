@@ -1,5 +1,6 @@
 package lambda;
 
+import java.math.BigDecimal;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -74,5 +75,11 @@ public class Streams {
 
         System.out.println(names);
 
+        System.out.println("Reduce .. ");
+        Optional<Double> result = productList.stream()
+                .map(Product::getPrice)
+                .reduce(Double::sum);
+
+        result.ifPresent(System.out::println);
     }
 }
